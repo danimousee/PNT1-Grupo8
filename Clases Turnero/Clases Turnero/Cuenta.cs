@@ -1,22 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Cuenta
 {
-	private String direccionCorreo;
-	private String contraseña;
-	private String codVerif;
-	private String nombreCompleto;
-	private int edad;
-	private int dni;
+	public String direccionCorreo;
+	public String contraseña;
+	public String codVerif;
+	public String nombreCompleto;
+	public int edad;
+	public int dni;
+	public List<Turno> turnosReservados;
 
-	public Cuenta(String correo, String contraseña, String codVerif, String nombreCompleto, int edad, int dni)
-    {
-		this.direccionCorreo = correo;
-		this.contraseña = contraseña;
-		this.codVerif = codVerif;
-		this.nombreCompleto = nombreCompleto;
-		this.edad = edad;
-		this.dni = dni;
 
-    }
 }
