@@ -1,0 +1,46 @@
+﻿@model TurneroMVC.Models.Turno
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Turno</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NroComprobante" class="control-label"></label>
+                <input asp-for="NroComprobante" class="form-control" />
+                <span asp-validation-for="NroComprobante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaHora" class="control-label"></label>
+                <input asp-for="DiaHora" class="form-control" />
+                <span asp-validation-for="DiaHora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Actividad" class="control-label"></label>
+                <select asp-for="Actividad" class="form-control" asp-items="Html.GetEnumSelectList<Actividad>()">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+                <span asp-validation-for="Actividad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
