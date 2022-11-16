@@ -19,6 +19,36 @@ namespace TurneroMVC.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("TurneroMVC.Models.Cuenta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CodVerif")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Contrasenia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Dni")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Edad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreCompleto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cuentas");
+                });
+
             modelBuilder.Entity("TurneroMVC.Models.Turno", b =>
                 {
                     b.Property<int>("Id")
@@ -29,15 +59,27 @@ namespace TurneroMVC.Migrations
                     b.Property<int>("Actividad")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CuentaId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DiaHora")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("NroComprobante")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NroComprobante")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CuentaId");
+
                     b.ToTable("Turnos");
+                });
+
+            modelBuilder.Entity("TurneroMVC.Models.Turno", b =>
+                {
+                    b.HasOne("TurneroMVC.Models.Cuenta", "Cuenta")
+                        .WithMany("TurnosReservados")
+                        .HasForeignKey("CuentaId");
                 });
 #pragma warning restore 612, 618
         }

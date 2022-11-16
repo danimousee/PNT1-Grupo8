@@ -13,5 +13,7 @@ namespace TurneroMVC.Context
         {
         }
         public DbSet<Turno> Turnos { get; set; }
+
+        public DbSet<Cuenta> Cuentas { get; set; }
     }
 }

@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20221031010032_TurneroMVC.Context.TurneroDatabaseContext.cs" />
+    <Compile Remove="Migrations\20221031010032_TurneroMVC.Context.TurneroDatabaseContext.Designer.cs" />
+    <Compile Remove="Migrations\20221109224830_TurneroMVC.Context.TurneroDatabaseContext.cs" />
+    <Compile Remove="Migrations\20221109224830_TurneroMVC.Context.TurneroDatabaseContext.Designer.cs" />
+    <Compile Remove="Migrations\20221109225924_TurneroMVC.Context.TurneroDatabaseContext.cs" />
+    <Compile Remove="Migrations\20221109225924_TurneroMVC.Context.TurneroDatabaseContext.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.30" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.30" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.30">

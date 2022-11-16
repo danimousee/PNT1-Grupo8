@@ -8901,19 +8901,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Veronica\\.nuget\\packages\\": {}
+    "C:\\Users\\damirojo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Veronica\\PNT1-Grupo8\\TurneroMVC\\TurneroMVC\\TurneroMVC.csproj",
+      "projectUniqueName": "D:\\VERONICA\\github\\PNT1-Grupo8\\TurneroMVC\\TurneroMVC\\TurneroMVC.csproj",
       "projectName": "TurneroMVC",
-      "projectPath": "C:\\Users\\Veronica\\PNT1-Grupo8\\TurneroMVC\\TurneroMVC\\TurneroMVC.csproj",
-      "packagesPath": "C:\\Users\\Veronica\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Veronica\\PNT1-Grupo8\\TurneroMVC\\TurneroMVC\\obj\\",
+      "projectPath": "D:\\VERONICA\\github\\PNT1-Grupo8\\TurneroMVC\\TurneroMVC\\TurneroMVC.csproj",
+      "packagesPath": "C:\\Users\\damirojo\\.nuget\\packages\\",
+      "outputPath": "D:\\VERONICA\\github\\PNT1-Grupo8\\TurneroMVC\\TurneroMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Veronica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\damirojo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8981,7 +8981,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

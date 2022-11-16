@@ -11,7 +11,7 @@ namespace TurneroMVC.Models
         public int Id { get; set; }
         
         [Display(Name = "Numero de Comprobante")]
-        public string NroComprobante { get; set; }
+        public int NroComprobante { get; set; }
 
         [Display(Name = "Fecha y Hora")]
         public DateTime DiaHora { get; set; }
@@ -19,7 +19,8 @@ namespace TurneroMVC.Models
         [EnumDataType(typeof(Actividad))]
         public Actividad Actividad { get; set; }
 
+        //Como hacer para que me pida en las vistas a que cuenta pertenece?
+        public Cuenta Cuenta { get; set; }
 
-        //public Cuenta IdCuenta;
     }
 }
