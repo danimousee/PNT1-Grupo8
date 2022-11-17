@@ -62,7 +62,7 @@ namespace TurneroMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(cuenta);
+            return View("Index");
         }
 
         // GET: Cuenta/Edit/5

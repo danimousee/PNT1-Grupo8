@@ -1,6 +1,7 @@
 ﻿@model TurneroMVC.Models.Cuenta
 
 @{
+    //Layout = "_Layout";
     ViewData["Title"] = "Create";
 }
 
@@ -50,7 +51,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-area="" asp-controller="Login" asp-action="Index">¿Ya tienes una cuenta?</a>
+    <br />
+    <a asp-action="Index">Ver lista de usuarios</a>
 </div>
 
 @section Scripts {

@@ -1,5 +1,9 @@
 ﻿
 @model string
+@{
+    //Layout = "_Layout";
+    ViewData["Title"] = "Login";
+}
 <h1>Login</h1>
 <form asp-action="Login" method="post">
     Usuario:
@@ -12,3 +16,4 @@
     <input type="submit" value="Save" />
 </form>
 
+<a asp-area="" asp-controller="Cuenta" asp-action="Create">¿No tienes una cuenta todavia?</a>
