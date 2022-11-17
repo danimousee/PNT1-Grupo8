@@ -20,7 +20,8 @@ namespace TurneroMVC.Models
         public Actividad Actividad { get; set; }
 
         //Como hacer para que me pida en las vistas a que cuenta pertenece?
-        public Cuenta Cuenta { get; set; }
+        public int CuentaId { get; set; }
+
 
     }
 }

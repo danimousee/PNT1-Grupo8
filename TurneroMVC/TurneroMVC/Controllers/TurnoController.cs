@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -58,6 +59,10 @@ namespace TurneroMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Recuperar valor de la variable de sesión para setearlo al turno
+                string idCuenta = HttpContext.Session.GetString("CuentaId");
+                turno.CuentaId = int.Parse(idCuenta);
+
                 _context.Add(turno);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -97,6 +102,10 @@ namespace TurneroMVC.Controllers
             {
                 try
                 {
+                    //Recuperar valor de la variable de sesión para setearlo al turno .
+                    string idCuenta = HttpContext.Session.GetString("CuentaId");
+                    turno.CuentaId = int.Parse(idCuenta);
+
                     _context.Update(turno);
                     await _context.SaveChangesAsync();
                 }

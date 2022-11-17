@@ -20,7 +20,7 @@ namespace TurneroMVC.Controllers
         public IActionResult Index()
         {
             //Recuperar valor de la variable de sesión
-            string nomusuario = HttpContext.Session.GetString("Usuario"); //o Session["Usuario"]
+            string nomusuario = HttpContext.Session.GetString("Usuario");
             return View(model: nomusuario);
         }
 
@@ -33,7 +33,7 @@ namespace TurneroMVC.Controllers
             //Usuario correcto
             if(cuentaPorEmail != null)
             {
-                HttpContext.Session.SetString("Usuario", cuentaPorEmail.Id.ToString());
+                HttpContext.Session.SetString("CuentaId", cuentaPorEmail.Id.ToString());
                 return RedirectToAction("Index", "Home");
             }
             //Usuario incorrecto
@@ -41,6 +41,7 @@ namespace TurneroMVC.Controllers
             {
                 ViewData["ErrorMessage"] = "Usuario o contraseña incorrecta. Reintente por favor.";
                 return View("Index");
+
             }
         }
     }
