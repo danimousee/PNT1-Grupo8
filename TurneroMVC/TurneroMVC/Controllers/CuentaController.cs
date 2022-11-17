@@ -23,6 +23,7 @@ namespace TurneroMVC.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Cuentas.ToListAsync());
+            
         }
 
         // GET: Cuenta/Details/5
@@ -60,9 +61,9 @@ namespace TurneroMVC.Controllers
             {
                 _context.Add(cuenta);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("Views/Home/Index.cshtml");
             }
-            return View(cuenta);
+            return View("Index");
         }
 
         // GET: Cuenta/Edit/5
