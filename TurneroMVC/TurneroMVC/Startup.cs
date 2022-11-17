@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 
 
 
+
 namespace TurneroMVC
 {
     public class Startup
@@ -42,6 +43,9 @@ namespace TurneroMVC
 
             services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
                     .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            //UsuVero
+            services.AddSession();
+            services.AddMvc();
 
         }
 
@@ -63,14 +67,18 @@ namespace TurneroMVC
 
             app.UseRouting();
 
+            //ese
+            app.UseSession();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
             });
         }
+               
     }
 }
