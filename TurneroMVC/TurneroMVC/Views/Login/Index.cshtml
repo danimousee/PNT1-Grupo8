@@ -5,7 +5,9 @@
     Usuario:
     <input type="text" name="usuario" />
     Contraseña:
-    <input type="text" name="contra" />
+    <input type="password" name="contra" />
+
+    <p style="color:red;">@ViewData["ErrorMessage"]</p>
 
     <input type="submit" value="Save" />
 </form>

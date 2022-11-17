@@ -1,12 +1,22 @@
 ﻿using System.Drawing;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using TurneroMVC.Context;
 using TurneroMVC.Models;
 
 namespace TurneroMVC.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly TurneroDatabaseContext _context;
+
+        public LoginController(TurneroDatabaseContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             //Recuperar valor de la variable de sesión
@@ -14,16 +24,24 @@ namespace TurneroMVC.Controllers
             return View(model: nomusuario);
         }
 
-        public IActionResult Login(string usuario, string contra)
+        public async Task<IActionResult> Login(string usuario, string contra)
         {
             //Validar usuario y contraseña contra la tabla correspondiente en la BD
             //Si está OK, asignar el valor a la variable de sesion
-            int cuentaId = 0;
+            var cuentaPorEmail = await _context.Cuentas.FirstOrDefaultAsync(c => c.Email == usuario && c.Contrasenia == contra);
 
-
-            HttpContext.Session.SetString("Usuario", cuentaId.ToString()); 
-            //Session["Usuario"] = cuentaId;
-            return RedirectToAction("Index");
+            //Usuario correcto
+            if(cuentaPorEmail != null)
+            {
+                HttpContext.Session.SetString("Usuario", cuentaPorEmail.Id.ToString());
+                return RedirectToAction("Index", "Home");
+            }
+            //Usuario incorrecto
+            else
+            {
+                ViewData["ErrorMessage"] = "Usuario o contraseña incorrecta. Reintente por favor.";
+                return View("Index");
+            }
         }
     }
 }
