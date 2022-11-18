@@ -23,7 +23,9 @@ namespace TurneroMVC.Controllers
         // GET: Turno
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Turnos.ToListAsync());
+            int cuentaId = Int32.Parse(HttpContext.Session.GetString("CuentaId"));
+            var turnosReservados = await _context.Turnos.Where(s => s.CuentaId == cuentaId).ToListAsync();
+            return View(turnosReservados);
         }
 
         // GET: Turno/Details/5
@@ -43,6 +45,8 @@ namespace TurneroMVC.Controllers
 
             return View(turno);
         }
+
+    
 
         // GET: Turno/Create
         public IActionResult Create()
