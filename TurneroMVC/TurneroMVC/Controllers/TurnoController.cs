@@ -23,7 +23,7 @@ namespace TurneroMVC.Controllers
         // GET: Turno
         public async Task<IActionResult> Index()
         {
-            int cuentaId = Int32.Parse(HttpContext.Session.GetString("CuentaId"));
+            int cuentaId = Int32.Parse(s: HttpContext.Session.GetString("CuentaId"));
             var turnosReservados = await _context.Turnos.Where(s => s.CuentaId == cuentaId).ToListAsync();
             return View(turnosReservados);
         }
@@ -59,7 +59,8 @@ namespace TurneroMVC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NroComprobante,DiaHora,Actividad")] Turno turno)
+        //public async Task<IActionResult> Create([Bind("Id,NroComprobante,DiaHora,Actividad")] Turno turno)
+        public async Task<IActionResult> Create([Bind("Id,DiaHora,Actividad")] Turno turno)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +96,8 @@ namespace TurneroMVC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NroComprobante,DiaHora,Actividad")] Turno turno)
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,NroComprobante,DiaHora,Actividad")] Turno turno)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DiaHora,Actividad")] Turno turno)
         {
             if (id != turno.Id)
             {

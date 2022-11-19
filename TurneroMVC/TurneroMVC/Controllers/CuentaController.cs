@@ -59,9 +59,15 @@ namespace TurneroMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cuenta);
-                await _context.SaveChangesAsync();
-                return View("Views/Home/Index.cshtml");
+                while (EmailExiste(cuenta) || DniExiste(cuenta))
+                {
+                    ViewData["ErrorMessage"] = "Email o Dni ya se encuentran registrados. Reintente por favor.";
+                    return View("Create");
+                }
+                 _context.Add(cuenta);
+                 await _context.SaveChangesAsync();
+                 return View("Views/Home/Index.cshtml");
+                
             }
             return View("Index");
         }
@@ -143,12 +149,29 @@ namespace TurneroMVC.Controllers
             var cuenta = await _context.Cuentas.FindAsync(id);
             _context.Cuentas.Remove(cuenta);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            if (cuenta.Id == id)
+            {
+                return View("Views/Cuenta/Create.cshtml");
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         private bool CuentaExists(int id)
         {
             return _context.Cuentas.Any(e => e.Id == id);
+        }
+
+        private bool EmailExiste(Cuenta c) 
+        {
+            return _context.Cuentas.Any(e => e.Email == c.Email);
+        }
+        private bool DniExiste(Cuenta c)
+        {
+            return _context.Cuentas.Any(e => e.Dni == c.Dni);
         }
     }
 }

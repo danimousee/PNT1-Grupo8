@@ -15,6 +15,7 @@ namespace TurneroMVC.Models
         public String Email { get; set; }
 
         [DataType(DataType.Password)]
+        [Display(Name = "Contraseña")]
         public String Contrasenia { get; set; }
 
         public String CodVerif { get; set; }
