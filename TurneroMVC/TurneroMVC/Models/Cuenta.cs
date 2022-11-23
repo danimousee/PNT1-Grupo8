@@ -28,5 +28,8 @@ namespace TurneroMVC.Models
         public int Dni { get; set; }
 
         public List<Turno> TurnosReservados { get; set; }
+
+        [EnumDataType(typeof(Rol))]
+        public Rol Rol { get; set; }
     }
 }

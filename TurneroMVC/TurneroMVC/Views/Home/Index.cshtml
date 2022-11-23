@@ -1,8 +1,12 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+
+@{
     Layout = "_Layout";
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Bienvenido/a</h1>
+    <h1 class="display-4">Bienvenido/a  @Accessor.HttpContext.Session.GetString("Rol")</h1>
+   
 </div>

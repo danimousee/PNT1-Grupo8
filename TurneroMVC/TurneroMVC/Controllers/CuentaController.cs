@@ -23,8 +23,14 @@ namespace TurneroMVC.Controllers
         // GET: Cuenta
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cuentas.ToListAsync());
-            
+            string rolLogged = HttpContext.Session.GetString("Rol");
+            string nomusuario = HttpContext.Session.GetString("CuentaId");
+            if (rolLogged.Equals(Rol.ADMINISTRADOR.ToString()))
+                return View(await _context.Cuentas.ToListAsync());
+            else
+                return View(await _context.Cuentas.Where(s => s.Id == int.Parse(nomusuario)).ToListAsync());
+
+
         }
 
         // GET: Cuenta/Details/5
@@ -65,12 +71,14 @@ namespace TurneroMVC.Controllers
                     ViewData["ErrorMessage"] = "Email o Dni ya se encuentran registrados. Reintente por favor.";
                     return View("Create");
                 }
-                
+
+                cuenta.Rol = Rol.USUARIO;
                 _context.Add(cuenta);
                 await _context.SaveChangesAsync();
 
                 //Una vez creada la cuenta guardo el Id de la misma en session para poderla asociar en turnos
                 HttpContext.Session.SetString("CuentaId", cuenta.Id.ToString());
+                HttpContext.Session.SetString("Rol", Rol.USUARIO.ToString());
                 return View("Views/Home/Index.cshtml");
                 
             }

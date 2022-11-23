@@ -24,9 +24,20 @@ namespace TurneroMVC.Controllers
         public async Task<IActionResult> Index()
         {
             int cuentaId = Int32.Parse(s: HttpContext.Session.GetString("CuentaId"));
-            var turnosReservados = await _context.Turnos.Where(s => s.CuentaId == cuentaId).ToListAsync();
-            return View(turnosReservados);
+            string rolLogged = HttpContext.Session.GetString("Rol");
+
+            if (rolLogged.Equals(Rol.ADMINISTRADOR.ToString()))
+            {
+                var turnosReservados = await _context.Turnos.ToListAsync();
+                return View(turnosReservados);
+            }
+            else
+            {
+                var turnosReservados = await _context.Turnos.Where(s => s.CuentaId == cuentaId).ToListAsync();
+                return View(turnosReservados);
+            }
         }
+               
 
         // GET: Turno/Details/5
         public async Task<IActionResult> Details(int? id)

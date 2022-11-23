@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TurneroMVC.Context;
 
 namespace TurneroMVC.Migrations
 {
     [DbContext(typeof(TurneroDatabaseContext))]
-    partial class TurneroDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20221123121749_vero-segunda-migracion")]
+    partial class verosegundamigracion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,9 +45,6 @@ namespace TurneroMVC.Migrations
 
                     b.Property<string>("NombreCompleto")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Rol")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
