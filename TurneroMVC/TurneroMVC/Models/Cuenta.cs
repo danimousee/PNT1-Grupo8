@@ -27,7 +27,6 @@ namespace TurneroMVC.Models
 
         public int Dni { get; set; }
 
-        //Como hacer para que me pida en las vistas a que cuenta pertenece?
         public List<Turno> TurnosReservados { get; set; }
     }
 }

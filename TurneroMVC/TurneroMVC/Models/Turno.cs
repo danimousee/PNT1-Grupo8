@@ -10,17 +10,17 @@ namespace TurneroMVC.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Display(Name = "Numero de Comprobante")]
         public int Id { get; set; }
-        
+
         ////[Display(Name = "Numero de Comprobante")]
         //public int NroComprobante { get; set; }
 
         [Display(Name = "Fecha y Hora")]
+        [DataType(DataType.DateTime)]
         public DateTime DiaHora { get; set; }
        
         [EnumDataType(typeof(Actividad))]
         public Actividad Actividad { get; set; }
 
-        //Como hacer para que me pida en las vistas a que cuenta pertenece?
         public int CuentaId { get; set; }
 
 

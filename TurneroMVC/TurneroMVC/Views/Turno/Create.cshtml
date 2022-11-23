@@ -20,7 +20,7 @@
             </div>*@
             <div class="form-group">
                 <label asp-for="DiaHora" class="control-label"></label>
-                <input asp-for="DiaHora" class="form-control" />
+                <input asp-for="DiaHora" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" />
                 <span asp-validation-for="DiaHora" class="text-danger"></span>
             </div>
             <div class="form-group">
