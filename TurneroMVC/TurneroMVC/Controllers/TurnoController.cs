@@ -26,13 +26,17 @@ namespace TurneroMVC.Controllers
             int cuentaId = Int32.Parse(s: HttpContext.Session.GetString("CuentaId"));
             string rolLogged = HttpContext.Session.GetString("Rol");
 
+            //si es ADMINISTRADOR el rol logueado
             if (rolLogged.Equals(Rol.ADMINISTRADOR.ToString()))
             {
+                //muestro todos los turnos
                 var turnosReservados = await _context.Turnos.ToListAsync();
                 return View(turnosReservados);
             }
+            //es USUARIO el rol logueado
             else
             {
+                //muestro solo los turnos con el IdCuenta de Session de ese usuario
                 var turnosReservados = await _context.Turnos.Where(s => s.CuentaId == cuentaId).ToListAsync();
                 return View(turnosReservados);
             }

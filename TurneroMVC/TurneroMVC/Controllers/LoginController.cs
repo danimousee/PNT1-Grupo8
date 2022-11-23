@@ -29,6 +29,7 @@ namespace TurneroMVC.Controllers
             //Validar usuario y contraseña contra la tabla correspondiente en la BD
             //Si está OK, asignar el valor a la variable de sesion
             var cuentaPorEmail = await _context.Cuentas.FirstOrDefaultAsync(c => c.Email == usuario && c.Contrasenia == contra);
+
             //Usuario correcto
             if(cuentaPorEmail != null)
             {

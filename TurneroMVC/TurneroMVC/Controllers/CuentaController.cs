@@ -25,9 +25,14 @@ namespace TurneroMVC.Controllers
         {
             string rolLogged = HttpContext.Session.GetString("Rol");
             string nomusuario = HttpContext.Session.GetString("CuentaId");
+
+            //si es ADMINISTRADOR el rol logueado
             if (rolLogged.Equals(Rol.ADMINISTRADOR.ToString()))
+                //muestro todas las cuentas
                 return View(await _context.Cuentas.ToListAsync());
+            //es USUARIO el rol logueado
             else
+                //muestro solo la cuenta con el IdCuenta de Session de ese usuario
                 return View(await _context.Cuentas.Where(s => s.Id == int.Parse(nomusuario)).ToListAsync());
 
 
