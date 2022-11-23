@@ -11,8 +11,6 @@ namespace TurneroMVC.Models
         [Display(Name = "Numero de Comprobante")]
         public int Id { get; set; }
 
-        ////[Display(Name = "Numero de Comprobante")]
-        //public int NroComprobante { get; set; }
 
         [Display(Name = "Fecha y Hora")]
         [DataType(DataType.DateTime)]
