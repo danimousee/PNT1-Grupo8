@@ -1,19 +1,30 @@
-﻿
-@model string
-@{
-    //Layout = "_Layout";
-    ViewData["Title"] = "Login";
-}
-<h1>Login</h1>
-<form asp-action="Login" method="post">
-    E-mail:
-    <input type="text" name="usuario" placeholder="Ej: hello@gmail.com" />
-    Contraseña:
-    <input type="password" name="contra" />
+﻿@model string
+@{ //Layout = "_Layout";
+                ViewData["Title"] = "Login"; }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form asp-action="Login" method="post">
+            E-mail:
+            <br />
+            <input type="text" name="usuario" placeholder="Ej: hello@gmail.com" />
+            <br /><br />
+            Contraseña:
+            <br />
+            <input type="password" name="contra" />
 
-    <p style="color:red;">@ViewData["ErrorMessage"]</p>
+            <p style="color:red;">@ViewData["ErrorMessage"]</p>
 
-    <input type="submit" value="Login" />
-</form>
+            <input type="submit" value="Login" />
+        </form>
 
-<a asp-area="" asp-controller="Cuenta" asp-action="Create">¿No tienes una cuenta todavia?</a>
+        <a asp-area="" asp-controller="Cuenta" asp-action="Create">¿No tienes una cuenta todavia?</a>
+    </div>
+</body>
