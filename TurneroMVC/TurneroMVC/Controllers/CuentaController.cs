@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -64,9 +65,13 @@ namespace TurneroMVC.Controllers
                     ViewData["ErrorMessage"] = "Email o Dni ya se encuentran registrados. Reintente por favor.";
                     return View("Create");
                 }
-                 _context.Add(cuenta);
-                 await _context.SaveChangesAsync();
-                 return View("Views/Home/Index.cshtml");
+                
+                _context.Add(cuenta);
+                await _context.SaveChangesAsync();
+
+                //Una vez creada la cuenta guardo el Id de la misma en session para poderla asociar en turnos
+                HttpContext.Session.SetString("CuentaId", cuenta.Id.ToString());
+                return View("Views/Home/Index.cshtml");
                 
             }
             return View("Index");
