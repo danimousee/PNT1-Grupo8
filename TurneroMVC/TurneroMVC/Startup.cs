@@ -46,7 +46,7 @@ namespace TurneroMVC
             services.AddMvc();
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
         }
 

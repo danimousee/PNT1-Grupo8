@@ -33,6 +33,7 @@ namespace TurneroMVC.Controllers
             //Usuario correcto
             if(cuentaPorEmail != null)
             {
+                HttpContext.Session.SetString("NombreCompleto", cuentaPorEmail.NombreCompleto);
                 HttpContext.Session.SetString("CuentaId", cuentaPorEmail.Id.ToString());
                 HttpContext.Session.SetString("Rol", cuentaPorEmail.Rol.ToString());
                 return RedirectToAction("Index", "Home");

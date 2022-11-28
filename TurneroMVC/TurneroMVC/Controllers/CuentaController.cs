@@ -84,6 +84,7 @@ namespace TurneroMVC.Controllers
                 //Una vez creada la cuenta guardo el Id de la misma en session para poderla asociar en turnos
                 HttpContext.Session.SetString("CuentaId", cuenta.Id.ToString());
                 HttpContext.Session.SetString("Rol", Rol.USUARIO.ToString());
+                HttpContext.Session.SetString("NombreCompleto", cuenta.NombreCompleto);
                 return View("Views/Home/Index.cshtml");
                 
             }

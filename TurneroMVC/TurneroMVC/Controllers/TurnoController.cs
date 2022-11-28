@@ -30,14 +30,20 @@ namespace TurneroMVC.Controllers
             if (rolLogged.Equals(Rol.ADMINISTRADOR.ToString()))
             {
                 //muestro todos los turnos
-                var turnosReservados = await _context.Turnos.ToListAsync();
+                var turnosReservados = await _context.Turnos
+                    .Include(t => t.Cuenta)
+                    .OrderBy(t => t.DiaHora)
+                    .ToListAsync();
                 return View(turnosReservados);
             }
             //es USUARIO el rol logueado
             else
             {
                 //muestro solo los turnos con el IdCuenta de Session de ese usuario
-                var turnosReservados = await _context.Turnos.Where(s => s.CuentaId == cuentaId).ToListAsync();
+                var turnosReservados = await _context.Turnos
+                    .Where(s => s.CuentaId == cuentaId)
+                    .OrderBy(t => t.DiaHora)
+                    .ToListAsync();
                 return View(turnosReservados);
             }
         }
@@ -52,6 +58,7 @@ namespace TurneroMVC.Controllers
             }
 
             var turno = await _context.Turnos
+                .Include(t => t.Cuenta)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (turno == null)
             {
@@ -75,7 +82,7 @@ namespace TurneroMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public async Task<IActionResult> Create([Bind("Id,NroComprobante,DiaHora,Actividad")] Turno turno)
-        public async Task<IActionResult> Create([Bind("Id,DiaHora,Actividad")] Turno turno)
+        public async Task<IActionResult> Create([Bind("Id,DiaHora,Actividad,CuentaId")] Turno turno)
         {
             if (ModelState.IsValid)
             {
@@ -83,9 +90,17 @@ namespace TurneroMVC.Controllers
                 string idCuenta = HttpContext.Session.GetString("CuentaId");
                 turno.CuentaId = int.Parse(idCuenta);
 
-                _context.Add(turno);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (!ExisteTurnoPrevio(turno))
+                {
+                    _context.Add(turno);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewData["ErrorMessage"] = "Usted puede sacar un solo turno por dia";
+                    return View(turno);
+                }
             }
             return View(turno);
         }
@@ -112,7 +127,7 @@ namespace TurneroMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public async Task<IActionResult> Edit(int id, [Bind("Id,NroComprobante,DiaHora,Actividad")] Turno turno)
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DiaHora,Actividad")] Turno turno)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DiaHora,Actividad,CuentaId")] Turno turno)
         {
             if (id != turno.Id)
             {
@@ -123,12 +138,16 @@ namespace TurneroMVC.Controllers
             {
                 try
                 {
-                    //Recuperar valor de la variable de sesión para setearlo al turno .
-                    string idCuenta = HttpContext.Session.GetString("CuentaId");
-                    turno.CuentaId = int.Parse(idCuenta);
-
-                    _context.Update(turno);
-                    await _context.SaveChangesAsync();
+                    if (!ExisteTurnoPrevio(turno)) {
+                        _context.Update(turno);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewData["ErrorMessage"] = "Usted puede sacar un solo turno por dia";
+                        return View(turno);
+                    }
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -178,6 +197,18 @@ namespace TurneroMVC.Controllers
         private bool TurnoExists(int id)
         {
             return _context.Turnos.Any(e => e.Id == id);
+        }
+
+        private bool ExisteTurnoPrevio(Turno turno)
+        {
+            bool result = true;
+
+            result = _context.Turnos
+                .Any(t => t.CuentaId == turno.CuentaId &&
+                            //t.Actividad == turno.Actividad &&
+                            t.DiaHora.DayOfYear == turno.DiaHora.DayOfYear);
+
+            return result;
         }
     }
 }

@@ -14,6 +14,7 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CuentaId" />
             @*<div class="form-group">
                 <label asp-for="NroComprobante" class="control-label"></label>
                 <input asp-for="NroComprobante" class="form-control" />
@@ -34,6 +35,7 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+            <p style="color:red;">@ViewData["ErrorMessage"]</p>
         </form>
     </div>
 </div>

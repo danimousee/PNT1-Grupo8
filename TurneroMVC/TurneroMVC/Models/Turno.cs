@@ -21,6 +21,8 @@ namespace TurneroMVC.Models
 
         public int CuentaId { get; set; }
 
+        public Cuenta Cuenta { get; set; }
+
 
     }
 }

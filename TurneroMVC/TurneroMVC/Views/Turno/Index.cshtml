@@ -1,4 +1,7 @@
-﻿@model IEnumerable<TurneroMVC.Models.Turno>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
+
+@model IEnumerable<TurneroMVC.Models.Turno>
 
 @{
     Layout = "_Layout";
@@ -14,17 +17,20 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.DiaHora)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DiaHora)
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Actividad)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CuentaId)
-            </th>
+            @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
+            {
+                <th>
+                    Nombre y Apellido
+                </th>
+            }
             <th></th>
         </tr>
     </thead>
@@ -32,17 +38,20 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.DiaHora)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DiaHora)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Actividad)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CuentaId)
-            </td>
+                @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cuenta.NombreCompleto)
+                    </td>
+                }
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |

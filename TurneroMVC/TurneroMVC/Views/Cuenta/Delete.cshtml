@@ -7,8 +7,7 @@
 
 <h1>Eliminar Cuenta</h1>
 
-<h3>¿Esta seguro de que desea eliminar su Cuenta?</h3>
-<p>Al eliminar su cuenta se borraran todos sus turnos asignados.</p>
+
 <div>
     <h4>Cuenta</h4>
     <hr />
@@ -50,10 +49,16 @@
             @Html.DisplayFor(model => model.Dni)
         </dd>
     </dl>
+
+    <div style="color:red">
+        <h3>¿Esta seguro de que desea eliminar su Cuenta?</h3>
+        <p>Al eliminar su cuenta se borraran todos sus turnos asignados.</p>
+    </div>
+    
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Volver</a>
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">Volver</a>
     </form>
 </div>
