@@ -4,27 +4,36 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="\css\loginIndex.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <title>@ViewData["Title"] - TurneroMVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form asp-action="Login" method="post">
-            E-mail:
-            <br />
-            <input type="text" name="usuario" placeholder="Ej: hello@gmail.com" />
-            <br /><br />
-            Contraseña:
-            <br />
-            <input type="password" name="contra" />
+            <h1>Login</h1>
+        
+            <form asp-action="Login" method="post">
+                <div class="txt_field">
+                    <input type="text" name="usuario" required/>
+                    <span></span>
+                    <label>Mail</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" name="contra" required/>
+                    <span></span>
+                    <label>Contraseña</label>
+                </div>
+                    <p style="color:red;">@ViewData["ErrorMessage"]</p>
 
-            <p style="color:red;">@ViewData["ErrorMessage"]</p>
+                    <input type="submit" value="Login" />
+            </form>
+  
 
-            <input type="submit" value="Login" />
-        </form>
-
-        <a asp-area="" asp-controller="Cuenta" asp-action="Create">¿No tienes una cuenta todavia?</a>
+             <div class="crear_cuenta">
+                <a asp-area="" asp-controller="Cuenta" asp-action="Create">¿No tienes una cuenta todavia?</a>
+             </div>
     </div>
+
+    
 </body>
