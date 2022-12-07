@@ -6,65 +6,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TurneroMVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="\css\cuentaCreate.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 </head>
 <body>
     <div class="container">
-        <h1>Crear</h1>
-        <h4>Cuenta</h4>
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Contrasenia" class="control-label"></label>
-                        <input asp-for="Contrasenia" class="form-control" />
-                        <span asp-validation-for="Contrasenia" class="text-danger"></span>
-                    </div>
-                    <!--
-                        <div class="form-group">
-                            <label asp-for="CodVerif" class="control-label"></label>
-                            <input asp-for="CodVerif" class="form-control" />
-                            <span asp-validation-for="CodVerif" class="text-danger"></span>
-                        </div>
-                    -->
-                    <div class="form-group">
-                        <label asp-for="NombreCompleto" class="control-label"></label>
-                        <input asp-for="NombreCompleto" class="form-control" />
-                        <span asp-validation-for="NombreCompleto" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Edad" class="control-label"></label>
-                        <input asp-for="Edad" class="form-control" />
-                        <span asp-validation-for="Edad" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Dni" class="control-label"></label>
-                        <input asp-for="Dni" class="form-control" />
-                        <span asp-validation-for="Dni" class="text-danger"></span>
-                    </div>
-                    <p style="color:red;">@ViewData["ErrorMessage"]</p>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        </div>
+        <h1>Registrate</h1>
 
-        <div>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="txt_field">
+                <input asp-for="Email" class="form-control" required />
+                <span></span>
+                <label asp-for="Email" class="control-label"></label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="txt_field">
+                <input asp-for="Contrasenia" class="form-control" required />
+                <span></span>
+                <label asp-for="Contrasenia" class="control-label"></label>
+                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+            </div>
+
+            <div class="txt_field">
+                <input asp-for="NombreCompleto" class="form-control" required />
+                <span></span>
+                <label asp-for="NombreCompleto" class="control-label"></label>
+                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+
+            <div class="txt_field">
+                <input asp-for="Edad" class="form-control" required />
+                <span></span>
+                <label asp-for="Edad" class="control-label"></label>
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+
+            <div class="txt_field">
+                <input asp-for="Dni" class="form-control" required />
+                <span></span>
+                <label asp-for="Dni" class="control-label"></label>
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+
+            <p style="color:red;">@ViewData["ErrorMessage"]</p>
+
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </form>
+
+            <div class="tiene_cuenta">
             <a asp-area="" asp-controller="Login" asp-action="Index">¿Ya tienes una cuenta?</a>
-            <br />
-        </div>
+            </div>
+
+     </div>
 
         @section Scripts {
             @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
         }
-    </div>
+    
 </body>
