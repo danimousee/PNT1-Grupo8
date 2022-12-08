@@ -1,0 +1,80 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    box-sizing: border-box;
+}
+
+bodyNavBar {
+   height: 100vh;
+   background-size: cover;
+   background-position: center;
+}
+
+header {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background: rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+.navBar {
+    color: white;
+}
+
+.contenedorNavBar {
+    border-bottom: 0.5px solid #30302f;
+    transition: 2s;
+}
+
+.contenedorNavBar:hover {
+    border-bottom: 0.5px solid rgba(237, 22, 60, 0.93);
+}
+
+.listaDesordenada li {
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+}
+
+
+.cerrar_sesion {
+    background: rgba(0,0,0,0.2);
+    border: 2px solid #424242;
+    border-radius: 50px;
+    padding: 9px 25px;
+    transition: .5s;
+}
+
+.cerrar_sesion a{
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-item a{
+    color: white;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.nav-item a:hover {
+    color: rgba(237, 22, 60, 0.93)
+}
+
+.cerrar_sesion:hover {
+    border: 2px solid rgba(237, 22, 60, 0.93);
+}

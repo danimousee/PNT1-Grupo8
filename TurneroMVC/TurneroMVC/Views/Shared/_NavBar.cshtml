@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="~/css/navBar.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body class="bodyNavBar">
+    <div class="contenedorNavBar">
+        <header>
+
+            <div class="logo">
+                <h2>TurneroMVC</h2>
+            </div>
+
+            <nav class="navBar">
+                <div class="contenedorDeListaDesordenada">
+                    <ul class="listaDesordenada">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Cuenta" asp-action="Index">Cuentas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Turno" asp-action="Index">Turnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Nosotros</a>
+                        </li> 
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="cerrar_sesion">
+                <a asp-area="" asp-controller="Login" asp-action="Index">Cerrar Sesión</a>
+            </div>
+        </header>
+    </div>
+
+    <div class="container2">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

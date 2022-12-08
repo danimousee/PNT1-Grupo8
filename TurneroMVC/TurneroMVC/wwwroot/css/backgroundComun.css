@@ -1,0 +1,33 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+    font-family: Montserrat;
+}
+
+h1 {
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    
+}
+
+h4 {
+    color: white;
+    text-align: center;
+}
+
+.nombres{
+   text-align: center;
+}
+
+ul li {
+    text-align: center;
+    color: white;
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+}

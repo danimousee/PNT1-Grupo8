@@ -1,11 +1,24 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>Integrantes del Grupo</h1>
 
-<ul>
-    <li>Castro Luis</li>
-    <li>Mouse Daniela</li>
-    <li>Gomez Veronica</li>
-</ul>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="~/css/backgroundComun.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <h1>Integrantes del Grupo</h1>
+    
+    <div class="nombres">
+        <ul>
+            <li>Castro Luis</li>
+            <li>Mouse Daniela</li>
+            <li>Gomez Veronica</li>
+        </ul>
+    </div>
+</body>
+

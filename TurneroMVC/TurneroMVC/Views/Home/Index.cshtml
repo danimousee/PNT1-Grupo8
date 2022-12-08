@@ -2,11 +2,21 @@
 @inject IHttpContextAccessor Accessor
 
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bienvenido/a  @Accessor.HttpContext.Session.GetString("NombreCompleto")</h1>
-    <h4>Perfil: @Accessor.HttpContext.Session.GetString("Rol")</h4>
-</div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="~/css/backgroundComun.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <div class="text-center">
+        <h1>Bienvenido/a  @Accessor.HttpContext.Session.GetString("NombreCompleto")</h1>
+        <h4>Perfil: @Accessor.HttpContext.Session.GetString("Rol")</h4>
+    </div>
+</body>
+

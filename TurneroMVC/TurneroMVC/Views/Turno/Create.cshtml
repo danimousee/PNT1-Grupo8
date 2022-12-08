@@ -1,48 +1,52 @@
 ﻿@model TurneroMVC.Models.Turno
 
 @{
-    Layout = "_Layout";
     ViewData["Title"] = "Create";
 }
 
-<h1>Agendar tu turno</h1>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="\css\turnoCreate.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
 
-<h4>Turno</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<body>
+    <div class="container">
+        <h1>Agenda tu turno</h1>
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="NroComprobante" class="control-label"></label>
-                <input asp-for="NroComprobante" class="form-control" />
-                <span asp-validation-for="NroComprobante" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
+
+            <div class="txt_field">
+                <input asp-for="DiaHora" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" required />
+                <span></span>
                 <label asp-for="DiaHora" class="control-label"></label>
-                <input asp-for="DiaHora" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" />
                 <span asp-validation-for="DiaHora" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Actividad" class="control-label"></label>
-                <select asp-for="Actividad" class="form-control" asp-items="Html.GetEnumSelectList<Actividad>()">
-                    <option selected="selected" value="">Please select</option>
+            <div class="select_field">
+                <select asp-for="Actividad" class="select_option" asp-items="Html.GetEnumSelectList<Actividad>()" required>
+                    <option class="option_select" selected="selected" value="">Please select</option>
                 </select>
+                <span></span>
+                <label asp-for="Actividad" class="control-label"></label>
                 <span asp-validation-for="Actividad" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Crear" class="btn btn-success" />
-            </div>
+
+            <input type="submit" value="Crear" class="btn btn-success" />
+
             <p style="color:red;">@ViewData["ErrorMessage"]</p>
         </form>
+
+        <div class="mis_turnos">
+            <a asp-action="Index">Ver mis turnos</a>
+        </div>
     </div>
-</div>
 
-<div>
-    
-    <a asp-action="Index">Ver mis turnos</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
