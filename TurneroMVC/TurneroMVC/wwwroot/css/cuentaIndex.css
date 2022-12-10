@@ -1,0 +1,76 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+    font-family: Montserrat;
+}
+
+h1 {
+    margin-top: 50px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+.contenedor_tabla {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table {
+
+    margin-right: 200px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.table thead tr {
+    background-color: #ffa8a8;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th {
+    padding: 12px 15px;
+    color: white;
+}
+
+.table td {
+    padding: 12px 15px;
+    color: silver;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #30302f;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color:  rgba(0,0,0,0.2);
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #ffa8a8;
+}
+
+.mail {
+    color: silver;
+    text-decoration: none;
+}
+
+.opciones {
+    color: silver;
+    transition: .5s;
+}
+
+.opciones:hover {
+    color: rgba(237, 22, 60, 0.93);
+}
