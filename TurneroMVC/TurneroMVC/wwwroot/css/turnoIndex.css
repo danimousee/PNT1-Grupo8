@@ -20,8 +20,23 @@ h1 {
     justify-content: center;
 }
 
-.table {
+p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
 
+p a {
+    color: white;
+    font-size: 15px;
+    transition: .5s;
+}
+
+p a:hover {
+    color:rgba(237, 22, 60, 0.93);
+}
+
+.table {
     margin-right: 200px;
     border-collapse: collapse;
     margin: 25px 0;

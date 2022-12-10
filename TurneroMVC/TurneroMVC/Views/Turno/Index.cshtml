@@ -4,60 +4,73 @@
 @model IEnumerable<TurneroMVC.Models.Turno>
 
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Index";
 }
 
-<h1>Mis Turnos</h1>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="~/css/turnoIndex.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <h1>Mis Turnos</h1>
 
-<p>
-    <a asp-action="Create">Agendar un nuevo turno</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DiaHora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Actividad)
-            </th>
-            @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
-            {
-                <th>
-                    Nombre y Apellido
-                </th>
-            }
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaHora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Actividad)
-            </td>
-                @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
+    <p>
+        <a asp-action="Create">AGENDAR NUEVO TURNO</a>
+    </p>
+
+    <div class="contenedor_tabla">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DiaHora)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Actividad)
+                    </th>
+                    @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
+                    {
+                        <th>
+                            Nombre y Apellido
+                        </th>
+                    }
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
                 {
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cuenta.NombreCompleto)
-                    </td>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiaHora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Actividad)
+                        </td>
+                        @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cuenta.NombreCompleto)
+                            </td>
+                        }
+                        <td>
+                            <a class="opciones" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                            <a class="opciones" asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                            <a class="opciones" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
                 }
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </tbody>
+        </table>
+    </div>
+</body>
