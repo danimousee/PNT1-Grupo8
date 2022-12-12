@@ -1,0 +1,132 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+    font-family: Montserrat;
+}
+
+h1 {
+    margin-left: 140px;
+    font-size: 20px;
+    margin-top: 10px;
+    color: white;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin-left: 140px;
+    color: white;
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+.slider {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides {
+    width: 500%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    transition: 2s;
+    width: 20%;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn {
+    border: 2px solid silver;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+    margin-right: 80px;
+}
+
+.manual-btn:hover {
+    border: 2px solid white;
+    background: white;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 360px;
+}
+
+.navigation-auto div{
+    border: 2px solid silver;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+    margin-right: 80px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    border: 2px solid white;
+    background: white;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    border: 2px solid white;
+    background: white;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    border: 2px solid white;
+    background: white;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    border: 2px solid white;
+    background: white;
+}

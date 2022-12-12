@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TurneroMVC</title>
-    <link rel="stylesheet" href="~/css/backgroundComun.css">
+    <link rel="stylesheet" href="~/css/welcome.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
@@ -18,5 +18,57 @@
         <h1>Bienvenido/a  @Accessor.HttpContext.Session.GetString("NombreCompleto")</h1>
         <h4>Perfil: @Accessor.HttpContext.Session.GetString("Rol")</h4>
     </div>
+
+    <div class="slider">
+        <div class="slides">
+
+            <input type="radio" name="radio-btn" id="radio1" checked/>
+            <input type="radio" name="radio-btn" id="radio2" />
+            <input type="radio" name="radio-btn" id="radio3" />
+            <input type="radio" name="radio-btn" id="radio4" />
+
+            <div class="slide first">
+                <img src="https://static9.depositphotos.com/1003348/1148/i/600/depositphotos_11486333-stock-photo-sunset-panorama.jpg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://img.freepik.com/vector-premium/banner-larga-horizontal-abstracta-mapa-linea-topografica_73458-425.jpg?auto=format&h=200" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://support.apple.com/content/dam/edam/applecare/images/en_US/psp_heros/hero-banner-macbook-air.image.large_2x.jpg" alt="" />
+            </div>
+            <div class="slide">
+                <img src="https://101trading.co.uk/wp-content/uploads/2015/04/horizon_00364590-1030x412.jpg" alt="" />
+            </div>
+
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+            </div>
+
+        </div>
+
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+        </div>
+
+      
+    </div>
+
+    <script type="text/javascript">
+        var counter = 2;
+        setInterval(function () {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 4) {
+                counter = 1;
+            }
+        }, 5000);
+    </script>
+
 </body>
 

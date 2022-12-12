@@ -27,8 +27,6 @@ container {
     color: white;
     text-align: center;
     transition: 1s linear;
-
-    border-top: ;
 }
 
 .row:hover {

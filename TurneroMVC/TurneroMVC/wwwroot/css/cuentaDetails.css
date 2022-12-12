@@ -35,8 +35,6 @@ h1 {
     color: white;
     text-align: center;
     transition: 1s linear;
-
-    border-top: ;
 }
 
 .row:hover {
@@ -98,7 +96,7 @@ h1 {
 }
 
 .volver {
-    width: 100px;
+    width: 90px;
     height: 40px;
     background: rgba(0,0,0,0.2);
     border: 2px solid #424242;
