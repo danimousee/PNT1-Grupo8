@@ -1,0 +1,132 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+    font-family: Montserrat;
+}
+
+container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px
+}
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+.row {
+    width: 100%;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 800px;
+    border: 1px solid silver;
+    color: white;
+    text-align: center;
+    transition: 1s linear;
+
+    border-top: ;
+}
+
+.row:hover {
+    border: 1px solid #ffa8a8;
+}
+
+.titulo:first-of-type {
+    margin-top: 5px;
+}
+
+.titulo {
+    float: left;
+    width: 50%;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.info:first-of-type {
+    margin-top: 5px;
+}
+
+.info {
+    float: right;
+    width: 50%;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.edit {
+    margin: auto;
+    text-align: center;
+    width: 90px;
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    border: 2px solid #424242;
+    border-radius: 50px;
+    padding: 9px 25px;
+    transition: .5s;
+    margin-top: 30px;
+}
+
+.edit a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit:hover {
+    background: rgba(237, 22, 60, 0.93);
+    border: 1px solid #30302f;
+}
+
+.volver {
+    width: 100px;
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    border: 2px solid #424242;
+    border-radius: 50px;
+    padding: 9px 25px;
+    transition: .5s;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.volver a {
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.volver:hover {
+    background: rgba(237, 22, 60, 0.93);
+    border: 1px solid #30302f;
+}
+
+.botones {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}

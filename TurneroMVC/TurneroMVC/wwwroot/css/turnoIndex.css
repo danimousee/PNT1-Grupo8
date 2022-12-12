@@ -33,7 +33,7 @@ p a {
 }
 
 p a:hover {
-    color:rgba(237, 22, 60, 0.93);
+    color:#ffa8a8
 }
 
 .table {
@@ -78,9 +78,6 @@ p a:hover {
 
 .opciones {
     color: silver;
-    transition: .5s;
+    text-decoration: none;
 }
 
-.opciones:hover {
-    color: rgba(237, 22, 60, 0.93);
-}

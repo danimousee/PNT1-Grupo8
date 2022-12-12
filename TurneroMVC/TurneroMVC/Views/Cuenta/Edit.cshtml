@@ -1,60 +1,74 @@
 ﻿@model TurneroMVC.Models.Cuenta
 
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Edit";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="\css\cuentaEdit.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
 
-<h1>Editar</h1>
+    <div class="container">
+        <h1>Editar Cuenta</h1>
 
-<h4>Cuenta</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="container_editor">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+            <div class="txt_field">
+                <input asp-for="Email" class="form-control" required/>
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <span></span>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="txt_field">
+                <input asp-for="Contrasenia" class="form-control" required/>
+                <span></span>
                 <label asp-for="Contrasenia" class="control-label"></label>
-                <input asp-for="Contrasenia" class="form-control" />
                 <span asp-validation-for="Contrasenia" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="txt_field">
+                <input asp-for="CodVerif" class="form-control" required/>
+                <span></span>
                 <label asp-for="CodVerif" class="control-label"></label>
-                <input asp-for="CodVerif" class="form-control" />
                 <span asp-validation-for="CodVerif" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="txt_field">
+                <input asp-for="NombreCompleto" class="form-control" required/>
+                <span></span>
                 <label asp-for="NombreCompleto" class="control-label"></label>
-                <input asp-for="NombreCompleto" class="form-control" />
                 <span asp-validation-for="NombreCompleto" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="txt_field">
+                <input asp-for="Edad" class="form-control" required/>
+                <span></span>
                 <label asp-for="Edad" class="control-label"></label>
-                <input asp-for="Edad" class="form-control" />
                 <span asp-validation-for="Edad" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="txt_field">
+                <input asp-for="Dni" class="form-control" required/>
+                <span></span>
                 <label asp-for="Dni" class="control-label"></label>
-                <input asp-for="Dni" class="form-control" />
                 <span asp-validation-for="Dni" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+           
                 <input type="submit" value="Save" class="btn btn-primary" />
+           
+
+            <div class="volver">
+            <a asp-action="Index">Volver</a>
             </div>
+
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Volver</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>

@@ -1,64 +1,75 @@
 ﻿@model TurneroMVC.Models.Cuenta
 
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Delete";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="\css\cuentaDelete.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <h1>Eliminar Cuenta</h1>
 
-<h1>Eliminar Cuenta</h1>
+    <div class="container">
+        
+        <dl class="row">
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.Contrasenia)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Contrasenia)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.CodVerif)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.CodVerif)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.NombreCompleto)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.NombreCompleto)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.Edad)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Edad)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.Dni)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Dni)
+            </dd>
+        </dl>
+
+        <div class="seguro" style="color:red">
+            <h3>¿Esta seguro que desea eliminar esta cuenta?</h3>
+
+            <p>Al eliminar su cuenta se borraran todos sus turnos asignados.</p>
+        </div>
 
 
-<div>
-    <h4>Cuenta</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Contrasenia)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Contrasenia)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodVerif)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CodVerif)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NombreCompleto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NombreCompleto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Dni)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Dni)
-        </dd>
-    </dl>
+        <form class="botones" asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
 
-    <div style="color:red">
-        <h3>¿Esta seguro de que desea eliminar su Cuenta?</h3>
-        <p>Al eliminar su cuenta se borraran todos sus turnos asignados.</p>
+            <div class="volver">
+                <a asp-action="Index" class="btn btn-primary">Volver</a>
+            </div>
+
+            <input class="borrar_cuenta" type="submit" value="Borrar" class="btn btn-danger" /> |
+        </form>
     </div>
-    
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Borrar" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-primary">Volver</a>
-    </form>
-</div>
+</body>

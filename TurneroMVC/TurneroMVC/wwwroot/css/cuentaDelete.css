@@ -1,0 +1,128 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+    font-family: Montserrat;
+}
+
+container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    border-radius: 10px
+}
+
+.row {
+    width: 100%;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 800px;
+    border: 1px solid silver;
+    color: white;
+    text-align: center;
+    transition: 1s linear;
+
+    border-top: ;
+}
+
+.row:hover {
+    border: 1px solid red;
+}
+
+.titulo:first-of-type {
+    margin-top: 5px;
+}
+
+.titulo {
+    float: left;
+    width: 50%;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.info:first-of-type {
+    margin-top: 5px;
+}
+
+.info {
+    float: right;
+    width: 50%;
+    color: white;
+    background: rgba(0,0,0,0.2);
+    height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.seguro {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+.container_inputs {
+    margin: 0;
+    padding: 0;
+}
+input[type="submit"] {
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    background: rgba(237, 22, 60, 0.93);
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover {
+        border-color: rgba(237, 22, 60, 0.93);
+        transition: .5s;
+}
+
+.botones {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.volver {
+    position: relative;
+    margin-right: 40px;
+    width: 100px;
+    height: 40px;
+    border: 1px solid;
+    background: rgba(52, 156, 31, 0.93);
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: 1s;
+}
+
+.volver a {
+    position: absolute;
+    margin-top: 8px;
+    color: white;
+    text-decoration: none;
+    margin-left: 21px;
+}
+
+.volver:hover {
+    background: rgba(79, 191, 38, 0.93);
+    border: 1px solid #58d42a;
+}
