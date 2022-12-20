@@ -31,3 +31,14 @@ ul li {
     list-style: none;
     padding: 0px 20px;
 }
+
+
+.imagen {
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+
+}
+.imagen img{
+    margin: auto;
+}

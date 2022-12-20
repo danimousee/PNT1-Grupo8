@@ -4,46 +4,60 @@
 @model TurneroMVC.Models.Turno
 
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalles</h1>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="\css\turnoDetails.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
 
-<div>
-    <h4>Turno</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DiaHora)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DiaHora)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Actividad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Actividad)
-        </dd>
-        @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
-        {
-            <dt class = "col-sm-2">
+    <div class="container">
+        <h1>Detalles</h1>
+
+        <dl class="row">
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.DiaHora)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.DiaHora)
+            </dd>
+            <dt class="titulo">
+                @Html.DisplayNameFor(model => model.Actividad)
+            </dt>
+            <dd class="info">
+                @Html.DisplayFor(model => model.Actividad)
+            </dd>
+            @if (Accessor.HttpContext.Session.GetString("Rol").Equals(Rol.ADMINISTRADOR.ToString()))
+            {
+            <dt class="titulo">
                 @Html.DisplayNameFor(model => model.Cuenta.NombreCompleto)
             </dt>
-            <dd class = "col-sm-10">
+            <dd class="info">
                 @Html.DisplayFor(model => model.Cuenta.NombreCompleto)
             </dd>
-        }
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
-    <a asp-action="Index">Volver</a>
-</div>
+            }
+        </dl>
+    </div>
+
+    <div class="botones">
+        <div class="volver">
+            <a asp-action="Index">Volver</a>
+        </div>
+
+        <div class="edit">
+            <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+        </div>
+    </div>
+</body>

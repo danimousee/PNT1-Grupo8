@@ -1,49 +1,58 @@
 ﻿@model TurneroMVC.Models.Turno
 
 @{
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_NavBar.cshtml";
     ViewData["Title"] = "Edit";
 }
 
-<h1>Editar</h1>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TurneroMVC</title>
+    <link rel="stylesheet" href="\css\turnoEdit.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Turno</h1>
 
-<h4>Turno</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="CuentaId" />
-            @*<div class="form-group">
-                <label asp-for="NroComprobante" class="control-label"></label>
-                <input asp-for="NroComprobante" class="form-control" />
-                <span asp-validation-for="NroComprobante" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="DiaHora" class="control-label"></label>
-                <input asp-for="DiaHora" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" />
-                <span asp-validation-for="DiaHora" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Actividad" class="control-label"></label>
-                <select asp-for="Actividad" class="form-control" asp-items="Html.GetEnumSelectList<Actividad>()">
-                    <option selected="selected" value="">Please select</option>
-                </select>
-                <span asp-validation-for="Actividad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+        <div class="row">
+
+            <form asp-action="container_editor">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CuentaId" />
+
+                <div class="txt_field">
+                    <input asp-for="DiaHora" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" required/>
+                    <span></span>
+                    <label asp-for="DiaHora" class="control-label"></label>
+                    <span asp-validation-for="DiaHora" class="text-danger"></span>
+                </div>
+                <div class="select_field">
+                    <select asp-for="Actividad" class="form-control" asp-items="Html.GetEnumSelectList<Actividad>()" required>
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span></span>
+                    <label asp-for="Actividad" class="control-label"></label>
+                    <span asp-validation-for="Actividad" class="text-danger"></span>
+                </div>
+
+
                 <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-            <p style="color:red;">@ViewData["ErrorMessage"]</p>
-        </form>
+
+                <p style="color:red;">@ViewData["ErrorMessage"]</p>
+
+                <div class="volver">
+                    <a asp-action="Index">Volver</a>
+                </div>
+
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Volver</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
+</body>

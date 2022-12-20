@@ -71,7 +71,6 @@ h1 {
 
 .edit {
     margin: auto;
-    text-align: center;
     width: 90px;
     height: 40px;
     background: rgba(0,0,0,0.2);
@@ -83,6 +82,8 @@ h1 {
 }
 
 .edit a {
+    display: flex;
+    justify-content: center;
     font-size: 16px;
     font-weight: 500;
     color: #fff;
