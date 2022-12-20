@@ -79,3 +79,18 @@ header {
     border: 2px solid rgba(237, 22, 60, 0.93);
 }
 
+
+.footer {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.footer_container {
+    color: white;
+}

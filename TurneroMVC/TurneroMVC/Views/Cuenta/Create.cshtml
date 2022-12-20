@@ -57,14 +57,20 @@
             <input type="submit" value="Create" class="btn btn-primary" />
         </form>
 
-            <div class="tiene_cuenta">
+        <div class="tiene_cuenta">
             <a asp-area="" asp-controller="Login" asp-action="Index">¿Ya tienes una cuenta?</a>
-            </div>
+        </div>
 
-     </div>
+    </div>
 
-        @section Scripts {
-            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-        }
-    
+    <footer class="footer">
+        <div class="footer_container">
+            &copy; 2022 - TurneroMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
 </body>
