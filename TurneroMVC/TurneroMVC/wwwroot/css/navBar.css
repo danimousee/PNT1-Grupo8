@@ -22,11 +22,20 @@ header {
 }
 
 .logo {
+    z-index: 2;
     font-size: 30px;
     font-weight: bold;
     color: #fff;
     letter-spacing: 1.5px;
     cursor: pointer;
+}
+
+.logo a {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    font-size: 45px;
 }
 
 .navBar {
@@ -86,6 +95,7 @@ header {
     display: flex;
     position: absolute;
     bottom: 0;
+    bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
@@ -93,4 +103,18 @@ header {
 
 .footer_container {
     color: white;
+}
+
+.relojito {
+    z-index: 1;
+    position: absolute;
+    left: 5%;
+}
+
+.relojito img{
+    margin-top: 1px;
+    margin-right: 0px;
+    display: flex;
+    height: 10%;
+    width: 10%;
 }

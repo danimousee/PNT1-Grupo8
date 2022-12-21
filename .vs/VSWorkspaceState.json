@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TurneroMVC"
+    "\\TurneroMVC",
+    "\\TurneroMVC\\TurneroMVC\\Views",
+    "\\TurneroMVC\\TurneroMVC\\Views\\Cuenta"
   ],
   "SelectedNode": "\\TurneroMVC\\TurneroMVC.sln",
   "PreviewInSolutionExplorer": false

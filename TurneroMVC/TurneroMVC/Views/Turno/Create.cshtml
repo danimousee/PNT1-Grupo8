@@ -21,7 +21,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="txt_field">
-                <input asp-for="DiaHora" class="form-control" min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" required />
+                <input asp-for="DiaHora" class="form-control"  min="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" max="@DateTime.Now.AddMonths(3).ToString("yyyy-MM-ddThh:mm")" required />
                 <span></span>
                 <label asp-for="DiaHora" class="control-label"></label>
                 <span asp-validation-for="DiaHora" class="text-danger"></span>

@@ -15,7 +15,13 @@ h1 {
     
 }
 
-h4 {
+.desc {
+    margin: auto;
+    width: 60%;
+    overflow: hidden;
+}
+
+.desc h4 {
     color: white;
     text-align: center;
 }
@@ -24,12 +30,13 @@ h4 {
    text-align: center;
 }
 
-ul li {
+.nombres ul li {
     text-align: center;
     color: white;
     display: inline-block;
     list-style: none;
     padding: 0px 20px;
+    margin-bottom: 30px;
 }
 
 
@@ -41,4 +48,6 @@ ul li {
 }
 .imagen img{
     margin: auto;
+    height: 20%;
+    width: 20%;
 }
