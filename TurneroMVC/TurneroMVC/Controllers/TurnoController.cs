@@ -114,6 +114,10 @@ namespace TurneroMVC.Controllers
             }
 
             var turno = await _context.Turnos.FindAsync(id);
+
+            //Guardo el valor de la fecha Original del turno para compararlo al guardar
+            HttpContext.Session.SetString("FechaOriginal", turno.DiaHora.ToString());
+
             if (turno == null)
             {
                 return NotFound();
@@ -138,15 +142,31 @@ namespace TurneroMVC.Controllers
             {
                 try
                 {
-                    if (!ExisteTurnoPrevio(turno)) {
+                    //Recuperar valor de la fecha Original del turno
+                    DateTime fechaOriginal = DateTime.Parse(HttpContext.Session.GetString("FechaOriginal"));
+
+
+                    //Me fijo que la fecha nueva del turno no se haya modificado con respecto a la fecha original
+                    if (fechaOriginal.DayOfYear == turno.DiaHora.DayOfYear)
+                    {
                         _context.Update(turno);
                         await _context.SaveChangesAsync();
                         return RedirectToAction(nameof(Index));
                     }
-                    else
-                    {
-                        ViewData["ErrorMessage"] = "Usted puede sacar un solo turno por dia";
-                        return View(turno);
+                    //Modifico la fecha
+                    else {
+                        //verifico que no tenga un turno previo
+                        if (!ExisteTurnoPrevio(turno))
+                        {
+                            _context.Update(turno);
+                            await _context.SaveChangesAsync();
+                            return RedirectToAction(nameof(Index));
+                        }
+                        else
+                        {
+                            ViewData["ErrorMessage"] = "Usted puede sacar un solo turno por dia";
+                            return View(turno);
+                        }
                     }
                 }
                 catch (DbUpdateConcurrencyException)

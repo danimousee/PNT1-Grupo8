@@ -16,9 +16,10 @@
     <div class="container">
         <h1>Editar Cuenta</h1>
 
-        <form asp-action="container_editor">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Rol" />
             <div class="txt_field">
                 <input asp-for="Email" class="form-control" required/>
                 <label asp-for="Email" class="control-label"></label>
